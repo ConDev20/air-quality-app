@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Air Quality</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <script src="gauge.min.js"></script> -->
+    <script src="//cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+  </head>
+  <body>
+    <div class="topnav">
+      <h1>Станция за измерване качеството на въздуха</h1>
+    </div>
+	<div class="container">
+		<div class="card-grid">
+			<div class="card">
+			<p class="card-title">Температура</p>
+			<canvas id="gauge-temperature"></canvas>
+			</div>
+			<div class="card">
+			<p class="card-title">Налягане</p>
+			<canvas id="gauge-pressure"></canvas>
+			</div>
+		</div>
+		<div class="card-grid">
+			<div class="card">
+				<table>
+					<thead>
+						<tr>
+							<th>Размер на твърдите частици</th>
+							<th>Измерена концентрация на твърдите частици</th>
+							<th>Максимално допустимо ниво</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> PM <1μm </td>
+							<td>
+								<div  class="table-cell">
+									<div class="ConnectionIndicator ConnectionIndicator--default" id="pm1-status">
+										<div class="Status">
+											<div class="Status__circle Status__circle--static"></div>
+											<div class="Status__circle Status__circle--animated Status__circle--pulse"></div>
+										</div>
+									</div>
+									<span id="pm1"></span>
+								</div>
+							</td>
+							<td><input type="number" id="pt1" inputmode="numeric" step="0.01"></td>
+						</tr>
+						<tr>
+							<td> PM <2.5μm </td>
+							<td>
+								<div  class="table-cell">
+									<div class="ConnectionIndicator ConnectionIndicator--default" id="pm25-status">
+										<div class="Status">
+											<div class="Status__circle Status__circle--static"></div>
+											<div class="Status__circle Status__circle--animated Status__circle--pulse"></div>
+										</div>
+									</div>
+									<span id="pm25"></span>
+								</div>
+							</td>
+							<td><input type="number" id="pt25" inputmode="numeric" step="0.01"></td>
+						</tr>
+						<tr>
+							<td> PM <4μm </td>
+							<td>
+								<div  class="table-cell">
+									<div class="ConnectionIndicator ConnectionIndicator--default" id="pm4-status">
+										<div class="Status">
+											<div class="Status__circle Status__circle--static"></div>
+											<div class="Status__circle Status__circle--animated Status__circle--pulse"></div>
+										</div>
+									</div>
+									<span id="pm4"></span>
+								</div>
+							</td>
+							<td><input type="number" id="pt4" inputmode="numeric" step="0.01"></td>
+						</tr>
+						<tr>
+							<td> PM <10μm </td>
+							<td>
+								<div  class="table-cell">
+									<div class="ConnectionIndicator ConnectionIndicator--default" id="pm10-status">
+										<div class="Status">
+											<div class="Status__circle Status__circle--static"></div>
+											<div class="Status__circle Status__circle--animated Status__circle--pulse"></div>
+										</div>
+									</div>
+									<span id="pm10"></span>
+								</div>
+							</td>
+							<td><input type="number" id="pt10" inputmode="numeric"  step="0.01"></td>
+						</tr>
+						<tr>
+							<td colspan="3" id="typical_size" > Среден размер на частици: </td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="card-grid">
+			<div class="card">
+				<div class="relay">
+					<p id ="sys_status">Вентилационна система: Затворена</p>
+					<div class="ConnectionIndicator ConnectionIndicator--default" id="relay-status">
+						<div class="Status">
+							<div class="Status__circle_big Status__circle--static"></div>
+							<div class="Status__circle_big Status__circle--animated Status__circle--pulseBig"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script src="script.js"></script>
+  </body>
+</html>
